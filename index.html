@@ -328,6 +328,24 @@
       content: ''; width: 5px; height: 5px; border-radius: 50%;
       background: var(--cyan);
     }
+    /* ── Skill level badge (Full Proficiency tag) ── */
+    .skill-level {
+      display: inline-flex; align-items: center;
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--cyan);
+      background: rgba(0, 210, 255, 0.08);
+      border: 1px solid rgba(0, 210, 255, 0.22);
+      padding: 3px 9px; border-radius: 2px;
+      width: fit-content;
+    }
+    /* ── Skill description text ── */
+    .skill-desc {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
 
     /* ── Teaching ── */
     #teaching { background: var(--bg-2); }
@@ -780,56 +798,87 @@
     </p>
 
     <div class="skills-grid">
+
+      <!-- AI Development: Full Proficiency tag added above Claude & Gemini -->
       <div class="skill-badge reveal">
         <div class="skill-icon">🤖</div>
         <div class="skill-name">AI Development</div>
+        <div class="skill-level">Full Proficiency</div>
         <div class="skill-dot">Claude &amp; Gemini</div>
       </div>
+
+      <!-- Statistical Analysis -->
       <div class="skill-badge reveal">
         <div class="skill-icon">📊</div>
         <div class="skill-name">Statistical Analysis</div>
         <div class="skill-dot">Full Proficiency</div>
+        <div class="skill-desc">Hypothesis testing, regression modeling, and probability-driven insights for data-informed decisions.</div>
       </div>
+
+      <!-- Data Analysis -->
       <div class="skill-badge reveal">
         <div class="skill-icon">📈</div>
         <div class="skill-name">Data Analysis</div>
         <div class="skill-dot">Full Proficiency</div>
+        <div class="skill-desc">Transforming raw datasets into clear visualizations, trends, and actionable business intelligence.</div>
       </div>
+
+      <!-- Databases -->
       <div class="skill-badge reveal">
         <div class="skill-icon">🗄️</div>
         <div class="skill-name">Databases</div>
         <div class="skill-dot">Full Proficiency</div>
+        <div class="skill-desc">Designing and optimizing relational and NoSQL schemas for scalability, integrity, and performance.</div>
       </div>
+
+      <!-- Database Testing -->
       <div class="skill-badge reveal">
         <div class="skill-icon">🧪</div>
         <div class="skill-name">Database Testing</div>
         <div class="skill-dot">Full Proficiency</div>
+        <div class="skill-desc">Validating data accuracy, referential integrity, and query performance through structured QA pipelines.</div>
       </div>
+
+      <!-- Back-End Web -->
       <div class="skill-badge reveal">
         <div class="skill-icon">🌐</div>
         <div class="skill-name">Back-End Web</div>
         <div class="skill-dot">Full Proficiency</div>
+        <div class="skill-desc">Building secure RESTful APIs, microservices, and server-side architectures for robust web platforms.</div>
       </div>
+
+      <!-- Django -->
       <div class="skill-badge reveal">
         <div class="skill-icon">🐍</div>
         <div class="skill-name">Django</div>
         <div class="skill-dot">Full Proficiency</div>
+        <div class="skill-desc">Rapid development of production-ready web applications using Django's batteries-included framework.</div>
       </div>
+
+      <!-- Python -->
       <div class="skill-badge reveal">
         <div class="skill-icon">🐍</div>
         <div class="skill-name">Python</div>
         <div class="skill-dot">Full Proficiency</div>
+        <div class="skill-desc">Primary language for scripting, automation, data pipelines, AI integration, and backend services.</div>
       </div>
+
+      <!-- C# -->
       <div class="skill-badge reveal">
         <div class="skill-icon">⚙️</div>
         <div class="skill-name">C#</div>
         <div class="skill-dot">Full Proficiency</div>
+        <div class="skill-desc">Enterprise-grade application development within the .NET ecosystem, from desktop to cloud services.</div>
       </div>
+
+      <!-- C Language -->
       <div class="skill-badge reveal">
         <div class="skill-icon">🔧</div>
         <div class="skill-name">C Language</div>
         <div class="skill-dot">Full Proficiency</div>
+        <div class="skill-desc">Low-level systems programming, memory management, and performance-critical software engineering.</div>
       </div>
+
     </div>
   </section>
 
@@ -1000,19 +1049,6 @@
       setTimeout(type, deleting ? 45 : 90);
     }
     setTimeout(type, 900);
-
-    // ── Counter animation ──
-    function animateCount(el, target, duration) {
-      let start = null;
-      function step(ts) {
-        if (!start) start = ts;
-        const progress = Math.min((ts - start) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        el.querySelector('.stat-num') && (el.querySelector('.stat-num').childNodes[0].nodeValue = Math.round(ease * target));
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
 
     // ── Scroll reveal ──
     const revealEls = document.querySelectorAll('.reveal');
