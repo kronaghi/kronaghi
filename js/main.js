@@ -61,26 +61,22 @@ document.querySelectorAll('.glow-card').forEach(card => {
   });
 });
 
-// ── Contact details unlock (contact page) ──
-const unlockBtn = document.getElementById('unlockSubmit');
-if (unlockBtn) {
-  const userInput = document.getElementById('unlockUser');
-  const passInput = document.getElementById('unlockPass');
-  const errorMsg  = document.getElementById('unlockError');
-  const formBox   = document.getElementById('unlockForm');
-  const resultBox = document.getElementById('unlockResult');
-
-  function checkCredentials() {
-    if (userInput.value.trim() === 'kambiz' && passInput.value === 'Python') {
-      formBox.style.display = 'none';
-      resultBox.style.display = 'block';
-    } else {
-      errorMsg.style.display = 'block';
-      passInput.value = '';
-      passInput.focus();
-    }
-  }
-  unlockBtn.addEventListener('click', checkCredentials);
-  passInput.addEventListener('keydown', e => { if (e.key === 'Enter') checkCredentials(); });
-  userInput.addEventListener('keydown', e => { if (e.key === 'Enter') passInput.focus(); });
+// ── 3D tilt card (contact page) ──
+const tiltCard = document.getElementById('contactCard');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (tiltCard && !reduceMotion) {
+  const MAX = 9; // max tilt in degrees
+  tiltCard.addEventListener('mousemove', e => {
+    const r = tiltCard.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;   // 0..1
+    const py = (e.clientY - r.top)  / r.height;  // 0..1
+    tiltCard.style.setProperty('--ry', ((px - 0.5) * 2 * MAX).toFixed(2) + 'deg');
+    tiltCard.style.setProperty('--rx', ((0.5 - py) * 2 * MAX).toFixed(2) + 'deg');
+    tiltCard.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    tiltCard.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+  });
+  tiltCard.addEventListener('mouseleave', () => {
+    tiltCard.style.setProperty('--rx', '0deg');
+    tiltCard.style.setProperty('--ry', '0deg');
+  });
 }
