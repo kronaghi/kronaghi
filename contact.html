@@ -11,6 +11,35 @@
 </head>
 <body>
 
+  <!-- Dark-red login gate (client-side only — not real security) -->
+  <div id="loginGate" class="login-gate">
+    <div class="login-card">
+      <div class="login-lock" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="4" y="10" width="16" height="11" rx="2"/>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+          <circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <p class="login-eyebrow">Restricted Area</p>
+      <h1 class="login-title">Contact — Protected</h1>
+      <p class="login-sub">Enter your credentials to access the contact details.</p>
+
+      <form id="loginForm" autocomplete="off">
+        <label class="login-field">
+          <span>Username</span>
+          <input type="text" id="loginUser" placeholder="Username" autocomplete="username" />
+        </label>
+        <label class="login-field">
+          <span>Password</span>
+          <input type="password" id="loginPass" placeholder="Password" autocomplete="current-password" />
+        </label>
+        <button type="submit" class="login-btn">Unlock</button>
+        <p class="login-error" id="loginError">Incorrect username or password.</p>
+      </form>
+    </div>
+  </div>
+
   <aside class="rail">
     <a class="rail-logo" href="index.html">KR<span>.dev</span></a>
     <span class="rail-title">Kambiz Ronaghi — Freelance System Developer</span>

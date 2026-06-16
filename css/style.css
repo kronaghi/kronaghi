@@ -296,6 +296,93 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 .contact-detail-text small { display: block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 3px; }
 .contact-detail-text a { color: var(--accent); text-decoration: none; }
 
+/* ── Dark-red login gate (contact page) ── */
+.login-gate {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(900px circle at 50% -10%, rgba(180,30,30,0.55), transparent 60%),
+    linear-gradient(160deg, #3a0606 0%, #240202 55%, #160101 100%);
+}
+.login-gate::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,90,90,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,90,90,0.05) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(circle at 50% 40%, #000 30%, transparent 80%);
+}
+.login-gate.is-hidden { display: none; }
+
+.login-card {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 400px;
+  padding: 46px 40px 40px;
+  background: linear-gradient(155deg, rgba(60,10,10,0.92), rgba(28,4,4,0.92));
+  border: 1px solid rgba(255,90,90,0.28);
+  border-top-color: rgba(255,120,120,0.6);
+  border-radius: 8px;
+  box-shadow:
+    0 30px 70px -20px rgba(0,0,0,0.7),
+    0 0 60px -24px rgba(220,40,40,0.5),
+    0 2px 0 rgba(255,255,255,0.05) inset;
+  text-align: center;
+}
+.login-lock {
+  width: 56px; height: 56px; margin: 0 auto 22px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  color: #ffb0b0;
+  background: rgba(255,80,80,0.12);
+  border: 1px solid rgba(255,90,90,0.35);
+}
+.login-eyebrow {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.26em;
+  text-transform: uppercase; color: #ff8a8a; margin-bottom: 10px;
+}
+.login-title {
+  font-family: var(--font-head); font-weight: 800; font-size: 26px;
+  color: #fff4f0; margin-bottom: 10px; letter-spacing: -0.01em;
+}
+.login-sub {
+  font-family: var(--font-body); font-size: 14px; line-height: 1.6;
+  color: rgba(255,220,215,0.65); margin-bottom: 28px;
+}
+.login-field { display: block; text-align: left; margin-bottom: 16px; }
+.login-field span {
+  display: block; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,200,195,0.7); margin-bottom: 7px;
+}
+.login-field input {
+  width: 100%; padding: 12px 15px;
+  background: rgba(15,2,2,0.6);
+  border: 1px solid rgba(255,90,90,0.3); border-radius: 4px;
+  color: #fff4f0; font-family: var(--font-mono); font-size: 14px;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.login-field input::placeholder { color: rgba(255,200,195,0.3); }
+.login-field input:focus {
+  border-color: rgba(255,120,120,0.8);
+  box-shadow: 0 0 0 3px rgba(220,40,40,0.18);
+}
+.login-btn {
+  width: 100%; margin-top: 8px; padding: 13px;
+  background: linear-gradient(180deg, #d83232, #a81e1e);
+  color: #fff4f0; border: none; border-radius: 4px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 500; cursor: pointer;
+  transition: filter 0.2s, transform 0.05s;
+}
+.login-btn:hover { filter: brightness(1.12); }
+.login-btn:active { transform: translateY(1px); }
+.login-error {
+  font-family: var(--font-mono); font-size: 12px; color: #ffb3a7;
+  margin-top: 14px; min-height: 16px; opacity: 0; transition: opacity 0.2s;
+}
+.login-error.show { opacity: 1; }
+
 /* ── 3D contact card ── */
 .card3d-stage {
   min-height: calc(100vh - 0px);

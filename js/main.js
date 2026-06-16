@@ -80,3 +80,37 @@ if (tiltCard && !reduceMotion) {
     tiltCard.style.setProperty('--ry', '0deg');
   });
 }
+
+// ── Contact login gate (client-side only — not real security) ──
+const loginGate = document.getElementById('loginGate');
+if (loginGate) {
+  const CREDS = { user: 'Kambiz', pass: 'RonaghY' };
+  const KEY = 'kr_contact_unlocked';
+  const form  = document.getElementById('loginForm');
+  const userI = document.getElementById('loginUser');
+  const passI = document.getElementById('loginPass');
+  const errEl = document.getElementById('loginError');
+
+  function unlock() { loginGate.classList.add('is-hidden'); document.body.style.overflow = ''; }
+
+  // Stay unlocked while navigating during this browser-tab session.
+  if (sessionStorage.getItem(KEY) === '1') {
+    unlock();
+  } else {
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => userI && userI.focus(), 100);
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (userI.value === CREDS.user && passI.value === CREDS.pass) {
+      sessionStorage.setItem(KEY, '1');
+      errEl.classList.remove('show');
+      unlock();
+    } else {
+      errEl.classList.add('show');
+      passI.value = '';
+      passI.focus();
+    }
+  });
+}
