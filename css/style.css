@@ -24,7 +24,7 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 body {
   background: var(--bg);
@@ -299,7 +299,8 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 /* ── Dark-red login gate (contact page) ── */
 .login-gate {
   position: fixed; inset: 0; z-index: 1000;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
   padding: 24px;
   background:
     radial-gradient(900px circle at 50% -10%, rgba(180,30,30,0.55), transparent 60%),
@@ -317,6 +318,7 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 
 .login-card {
   position: relative; z-index: 1;
+  margin: auto;
   width: 100%; max-width: 400px;
   padding: 46px 40px 40px;
   background: linear-gradient(155deg, rgba(60,10,10,0.92), rgba(28,4,4,0.92));
@@ -385,7 +387,7 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 
 /* ── 3D contact card ── */
 .card3d-stage {
-  min-height: calc(100vh - 0px);
+  min-height: 100vh; min-height: 100dvh;
   display: flex; align-items: center; justify-content: center;
   padding: 150px var(--pad-x) 120px;
   perspective: 1400px;
@@ -510,7 +512,13 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 @media (max-width: 560px) {
   :root { --pad-x: 20px; }
   .explore-grid { grid-template-columns: 1fr; }
-  .top-nav a { font-size: 10px; letter-spacing: 0.08em; }
+  .top-nav { flex-wrap: wrap; row-gap: 6px; column-gap: 14px; justify-content: flex-start; }
+  .top-nav a { font-size: 10px; letter-spacing: 0.08em; padding-bottom: 2px; }
   .card3d { padding: 40px 26px; }
-  .card3d-stage { padding: 120px var(--pad-x) 90px; }
+  .card3d-stage { padding: 110px var(--pad-x) 80px; }
+  .card3d-title { font-size: clamp(30px, 8vw, 40px); }
+
+  .login-card { padding: 38px 24px 32px; }
+  .login-title { font-size: 22px; }
+  .login-sub { font-size: 13px; }
 }
