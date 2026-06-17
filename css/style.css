@@ -85,6 +85,38 @@ body::before {
 .top-nav a:hover { color: var(--accent); }
 .top-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
+/* ── Nav dropdown (Projects ▸ Salary) ── */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-dim); background: none; border: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 0 0 4px; border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--accent); }
+.nav-caret { font-size: 9px; transition: transform 0.2s; }
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+/* invisible bridge so the menu stays open while crossing the gap */
+.nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 12px; }
+.nav-dropdown-menu {
+  position: absolute; top: calc(100% + 12px); right: 0; min-width: 150px;
+  display: flex; flex-direction: column; gap: 2px;
+  background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px; z-index: 120;
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-dropdown-menu a {
+  padding: 7px 12px; border-bottom: none; border-radius: 5px; white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: var(--accent-dim); color: var(--accent); }
+
 main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 
 /* ── Page head (inner pages) ── */
