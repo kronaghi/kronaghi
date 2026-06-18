@@ -1,4 +1,48 @@
 /* ════════════════════════════════════════════════════════════
+   Self-hosted fonts (latin + latin-ext, woff2, variable)
+   ════════════════════════════════════════════════════════════ */
+@font-face {
+  font-family: 'Syne'; font-style: normal; font-weight: 700 800; font-display: swap;
+  src: url(../fonts/syne-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Syne'; font-style: normal; font-weight: 700 800; font-display: swap;
+  src: url(../fonts/syne-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url(../fonts/jetbrains-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url(../fonts/jetbrains-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url(../fonts/lora-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url(../fonts/lora-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora'; font-style: italic; font-weight: 400 700; font-display: swap;
+  src: url(../fonts/lora-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora'; font-style: italic; font-weight: 400 700; font-display: swap;
+  src: url(../fonts/lora-italic-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ════════════════════════════════════════════════════════════
    Twilight Workshop — shared styles for kr.dev (multi-page v2)
    Mid-tone dusk slate · ember amber accent · verdigris secondary
    ════════════════════════════════════════════════════════════ */
@@ -28,6 +72,8 @@ html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 body {
   background: var(--bg);
+  /* Dusk at the top → deep night at the bottom; same treatment as the Tarifrechner */
+  background: linear-gradient(180deg, #586271 0%, #515a68 42%, #434b58 100%) fixed;
   color: var(--text);
   font-family: var(--font-body);
   font-size: 17px;
@@ -189,6 +235,7 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 }
 .hero-photo-wrap::after { content: ''; position: absolute; inset: -24px; border-radius: 50%; border: 1px solid rgba(255,185,103,0.12); }
 @keyframes spinRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.hero-photo-wrap picture { display: block; width: 100%; height: 100%; }
 .hero-photo {
   width: 100%; height: 100%; border-radius: 50%;
   object-fit: cover; object-position: center top; display: block;
@@ -248,6 +295,7 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 }
 .about-aside { position: sticky; top: 130px; display: flex; flex-direction: column; gap: 40px; }
 .about-photo-frame { position: relative; max-width: 360px; }
+.about-photo-frame picture { display: block; }
 .about-photo-frame img { width: 100%; display: block; border: 1px solid var(--border); filter: saturate(0.94) contrast(1.02); }
 .about-photo-frame::before { content: ''; position: absolute; inset: 0; transform: translate(16px, 16px); border: 1px solid var(--accent); opacity: 0.5; pointer-events: none; }
 .big-quote { font-style: italic; font-size: 21px; line-height: 1.6; color: var(--text); border-left: 2px solid var(--accent); padding-left: 22px; }
@@ -553,4 +601,15 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
   .login-card { padding: 38px 24px 32px; }
   .login-title { font-size: 22px; }
   .login-sub { font-size: 13px; }
+}
+
+/* ── Reduced motion: keep content visible, drop the decorative animation ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }

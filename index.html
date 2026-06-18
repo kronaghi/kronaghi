@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kambiz Ronaghi — Freelance System Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <!-- Self-hosted fonts — no third-party requests, faster first paint -->
+  <link rel="preload" href="fonts/syne-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/lora-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/jetbrains-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -68,7 +69,10 @@
         <p class="hero-desc">Crafting robust, scalable, and efficient software solutions for over three decades. From system architecture to AI-powered applications — built to last.</p>
       </div>
       <div class="hero-photo-wrap">
-        <img src="profile.jpg" alt="Kambiz Ronaghi" class="hero-photo" />
+        <picture>
+          <source srcset="profile.webp" type="image/webp" />
+          <img src="profile.jpg" alt="Kambiz Ronaghi" class="hero-photo" width="802" height="1070" decoding="async" />
+        </picture>
       </div>
 
       <div class="hero-scroll">
