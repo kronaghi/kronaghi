@@ -16,7 +16,10 @@ if (revealEls.length) {
 // ── Typed headline (home) ──
 const typedEl = document.getElementById('typed');
 if (typedEl) {
-  const phrases = ['System Developer', 'Software Architect', 'AI Enthusiast', 'Educator & Mentor'];
+  // Phrases can be overridden per language via data-phrases on #typed.
+  const phrases = typedEl.dataset.phrases
+    ? JSON.parse(typedEl.dataset.phrases)
+    : ['System Developer', 'Software Architect', 'AI Enthusiast', 'Educator & Mentor'];
   let pi = 0, ci = 0, deleting = false;
   function type() {
     const word = phrases[pi];

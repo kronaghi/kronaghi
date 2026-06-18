@@ -163,6 +163,20 @@ body::before {
 }
 .nav-dropdown-menu a:hover { background: var(--accent-dim); color: var(--accent); }
 
+/* ── Language switch (EN / DE) ── */
+.lang-switch {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+}
+.lang-switch a {
+  color: var(--text-dim); text-decoration: none;
+  padding-bottom: 4px; border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.lang-switch a:hover { color: var(--accent); }
+.lang-switch a.active { color: var(--accent); border-bottom-color: var(--accent); }
+.lang-switch .sep { color: var(--text-dim); opacity: 0.4; }
+
 main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 
 /* ── Page head (inner pages) ── */
