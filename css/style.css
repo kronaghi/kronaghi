@@ -603,6 +603,13 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
   .login-sub { font-size: 13px; }
 }
 
+/* On phones, drop the skill meta below the title so the tags never clip */
+@media (max-width: 640px) {
+  .ledger-row { grid-template-columns: 34px 1fr; column-gap: 16px; row-gap: 12px; }
+  .lr-meta { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+  .skill-dot, .skill-tag { white-space: normal; }
+}
+
 /* ── Reduced motion: keep content visible, drop the decorative animation ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
