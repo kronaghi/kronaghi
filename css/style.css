@@ -310,7 +310,7 @@ main { margin-left: var(--rail-w); position: relative; z-index: 1; }
 .about-aside { position: sticky; top: 130px; display: flex; flex-direction: column; gap: 40px; }
 .about-photo-frame { position: relative; max-width: 360px; }
 .about-photo-frame picture { display: block; }
-.about-photo-frame img { width: 100%; display: block; border: 1px solid var(--border); filter: saturate(0.94) contrast(1.02); }
+.about-photo-frame img { width: 100%; height: auto; display: block; border: 1px solid var(--border); filter: saturate(0.94) contrast(1.02); }
 .about-photo-frame::before { content: ''; position: absolute; inset: 0; transform: translate(16px, 16px); border: 1px solid var(--accent); opacity: 0.5; pointer-events: none; }
 .big-quote { font-style: italic; font-size: 21px; line-height: 1.6; color: var(--text); border-left: 2px solid var(--accent); padding-left: 22px; }
 .big-quote small { display: block; font-style: normal; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-top: 14px; }
