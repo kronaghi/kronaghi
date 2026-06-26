@@ -1,153 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kambiz Ronaghi — Freelance System Developer</title>
-  <!-- Self-hosted fonts — no third-party requests, faster first paint -->
-  <link rel="preload" href="fonts/syne-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/lora-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/jetbrains-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="alternate" hreflang="en" href="https://kronaghi.github.io/kronaghi/index.html" />
-  <link rel="alternate" hreflang="de" href="https://kronaghi.github.io/kronaghi/de/index.html" />
-  <link rel="alternate" hreflang="x-default" href="https://kronaghi.github.io/kronaghi/index.html" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kambiz Ronaghi — We've moved</title>
+  <meta http-equiv="refresh" content="10;url=https://www.ai-ronaghi.de">
+  <style>
+    :root{
+      --darkred:#8b0000;
+      --darkyellow:#c9a227;
+      --ink:#fdf6e3;
+      --duration:10s;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      display:grid;place-items:center;
+      padding:24px;
+      background:linear-gradient(45deg,var(--darkred) 0%,#5e0000 35%,#9a6b00 70%,var(--darkyellow) 100%);
+      background-size:220% 220%;
+      animation:drift 14s ease-in-out infinite;
+      position:relative;overflow:hidden;
+    }
+    body::after{
+      content:"";position:fixed;inset:0;pointer-events:none;
+      background:radial-gradient(120% 90% at 50% 18%,transparent 40%,rgba(0,0,0,.55) 100%);
+    }
+    @keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+    .card{
+      position:relative;z-index:1;
+      max-width:560px;width:100%;
+      padding:48px 40px;
+      text-align:center;
+      border-radius:24px;
+      background:rgba(28,8,8,.55);
+      border:1px solid rgba(201,162,39,.45);
+      backdrop-filter:blur(14px) saturate(120%);
+      -webkit-backdrop-filter:blur(14px) saturate(120%);
+      box-shadow:
+        0 30px 70px -20px rgba(0,0,0,.75),
+        0 10px 24px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.10);
+      animation:rise .8s cubic-bezier(.2,.8,.2,1) both;
+    }
+    @keyframes rise{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:none}}
+
+    .eyebrow{
+      letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;
+      color:var(--darkyellow);opacity:.9;margin-bottom:14px;
+    }
+    h1{font-size:clamp(1.6rem,4.5vw,2.4rem);line-height:1.15;font-weight:800;margin-bottom:10px}
+    .sub{font-size:1rem;line-height:1.55;opacity:.88;margin-bottom:6px}
+    .sub.de{font-size:.92rem;opacity:.62;margin-bottom:28px}
+
+    .ring-wrap{position:relative;width:118px;height:118px;margin:6px auto 26px}
+    svg{transform:rotate(-90deg)}
+    .track{stroke:rgba(255,255,255,.14)}
+    .progress{
+      stroke:var(--darkyellow);stroke-linecap:round;
+      stroke-dasharray:326.7;stroke-dashoffset:0;
+      filter:drop-shadow(0 0 6px rgba(201,162,39,.6));
+      animation:deplete var(--duration) linear forwards;
+    }
+    @keyframes deplete{to{stroke-dashoffset:326.7}}
+    .count{
+      position:absolute;inset:0;display:grid;place-items:center;
+      font-size:2.4rem;font-weight:800;font-variant-numeric:tabular-nums;
+    }
+    .count small{display:block;font-size:.6rem;font-weight:600;letter-spacing:.2em;
+      text-transform:uppercase;opacity:.6;margin-top:2px}
+
+    .go{
+      display:inline-block;margin-top:4px;
+      padding:14px 26px;border-radius:999px;
+      font-weight:700;text-decoration:none;color:#1c0808;
+      background:linear-gradient(45deg,var(--darkyellow),#f0d066);
+      box-shadow:0 8px 22px -6px rgba(201,162,39,.7);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .go:hover{transform:translateY(-2px);box-shadow:0 12px 28px -6px rgba(201,162,39,.85)}
+    .go .url{display:block;font-size:.78rem;font-weight:600;opacity:.7;margin-top:2px}
+
+    noscript a{color:var(--darkyellow)}
+
+    @media (prefers-reduced-motion:reduce){
+      body{animation:none}
+      .card{animation:none}
+      .progress{animation:none;stroke-dashoffset:0}
+    }
+  </style>
 </head>
 <body>
+  <main class="card" role="main">
+    <p class="eyebrow">Kambiz Ronaghi</p>
+    <h1>This site has a new home</h1>
+    <p class="sub">You'll be taken to my new website in a moment.</p>
+    <p class="sub de">Sie werden in Kürze zu meiner neuen Website weitergeleitet.</p>
 
-  <aside class="rail">
-    <a class="rail-logo" href="index.html">KR<span>.dev</span></a>
-    <span class="rail-title">Kambiz Ronaghi — Freelance System Developer</span>
-    <span class="rail-num">01 / 05</span>
-  </aside>
+    <div class="ring-wrap" aria-hidden="true">
+      <svg width="118" height="118" viewBox="0 0 118 118">
+        <circle class="track"    cx="59" cy="59" r="52" fill="none" stroke-width="8"/>
+        <circle class="progress" cx="59" cy="59" r="52" fill="none" stroke-width="8"/>
+      </svg>
+      <div class="count"><span id="num">10</span><small>seconds</small></div>
+    </div>
 
-  <header class="topbar">
-    <span class="crumb">kr.dev / <b>home</b></span>
-    <nav class="top-nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="expertise.html">Expertise</a>
-      <a href="teaching.html">Teaching</a>
-      <a href="contact.html">Contact</a>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">Projects <span class="nav-caret" aria-hidden="true">▾</span></button>
-        <div class="nav-dropdown-menu">
-          <a href="https://kronaghi.github.io/salary_lusi/" target="_blank" rel="noopener">Salary</a>
-        </div>
-      </div>
-      <div class="lang-switch" aria-label="Language">
-        <a class="active" aria-current="page" href="index.html">EN</a>
-        <span class="sep" aria-hidden="true">/</span>
-        <a href="de/index.html">DE</a>
-      </div>
-    </nav>
-  </header>
+    <a class="go" href="https://www.ai-ronaghi.de">
+      Go to my new site now
+      <span class="url">www.ai-ronaghi.de</span>
+    </a>
 
-  <main>
-    <!-- Hero -->
-    <section id="hero">
-      <div class="bg-orb orb-amber"></div>
-      <div class="bg-orb orb-teal"></div>
-      <div class="page-numeral" aria-hidden="true">01</div>
-      <div class="circuit-lines" aria-hidden="true">
-        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1200 0 L1200 200 L1380 200" stroke="rgba(255,185,103,0.07)" stroke-width="1"/>
-          <path d="M1380 200 L1440 200" stroke="rgba(255,185,103,0.05)" stroke-width="1"/>
-          <circle cx="1380" cy="200" r="4" fill="none" stroke="rgba(255,185,103,0.15)" stroke-width="1"/>
-          <path d="M1200 400 L1300 400 L1300 500 L1440 500" stroke="rgba(255,185,103,0.05)" stroke-width="1"/>
-          <circle cx="1300" cy="400" r="3" fill="rgba(255,185,103,0.1)"/>
-          <path d="M0 600 L100 600 L100 700 L200 700" stroke="rgba(255,185,103,0.06)" stroke-width="1"/>
-          <circle cx="100" cy="600" r="4" fill="none" stroke="rgba(255,185,103,0.12)" stroke-width="1"/>
-          <path d="M0 300 L60 300 L60 420 L180 420" stroke="rgba(255,185,103,0.05)" stroke-width="1"/>
-          <circle cx="60" cy="300" r="3" fill="rgba(255,185,103,0.08)"/>
-          <path d="M900 900 L900 750 L1050 750 L1050 600" stroke="rgba(255,185,103,0.05)" stroke-width="1"/>
-          <circle cx="1050" cy="600" r="4" fill="none" stroke="rgba(255,185,103,0.12)" stroke-width="1"/>
-          <path d="M400 900 L400 820 L550 820" stroke="rgba(255,185,103,0.04)" stroke-width="1"/>
-        </svg>
-      </div>
-
-      <div class="hero-left">
-        <div class="hero-tag">Freelance System Developer</div>
-        <h1 class="hero-name">
-          <span class="first">Kambiz</span>
-          <span class="last">Ronaghi</span>
-        </h1>
-        <p class="hero-title">&gt; <span id="typed"></span><span class="typed-cursor"></span></p>
-        <div class="hero-divider"></div>
-        <p class="hero-desc">Crafting robust, scalable, and efficient software solutions for over three decades. From system architecture to AI-powered applications — built to last.</p>
-      </div>
-      <div class="hero-photo-wrap">
-        <picture>
-          <source srcset="profile.webp" type="image/webp" />
-          <img src="profile.jpg" alt="Kambiz Ronaghi" class="hero-photo" width="802" height="1070" decoding="async" />
-        </picture>
-      </div>
-
-      <div class="hero-scroll">
-        <div class="hero-scroll-line"></div>
-        Scroll to explore
-      </div>
-    </section>
-
-    <!-- Stats strip -->
-    <section class="stats-strip reveal">
-      <div class="stat-cell">
-        <div class="stat-num" id="counter-apps">250<sup>+</sup></div>
-        <div class="stat-label">Applications Launched</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">30<sup>+</sup></div>
-        <div class="stat-label">Years of Experience</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">30<sup>+</sup></div>
-        <div class="stat-label">Years Teaching</div>
-      </div>
-    </section>
-
-    <!-- Explore directory -->
-    <section class="explore">
-      <div class="kicker reveal">Index</div>
-      <h2 class="page-title reveal" style="font-size:clamp(32px,4vw,52px)">Explore the Site</h2>
-      <div class="explore-grid">
-        <a class="explore-card glow-card reveal" href="about.html">
-          <span class="ec-num">02</span>
-          <h3 class="ec-title">About</h3>
-          <p class="ec-desc">The mind behind the machines — three decades of designing and shipping software.</p>
-          <span class="ec-arrow">→</span>
-        </a>
-        <a class="explore-card glow-card reveal" href="expertise.html">
-          <span class="ec-num">03</span>
-          <h3 class="ec-title">Expertise</h3>
-          <p class="ec-desc">From AI development to C — a full ledger of languages, frameworks, and disciplines.</p>
-          <span class="ec-arrow">→</span>
-        </a>
-        <a class="explore-card glow-card reveal" href="teaching.html">
-          <span class="ec-num">04</span>
-          <h3 class="ec-title">Teaching</h3>
-          <p class="ec-desc">30+ years turning complexity into clarity for future engineers and scientists.</p>
-          <span class="ec-arrow">→</span>
-        </a>
-        <a class="explore-card glow-card reveal" href="contact.html">
-          <span class="ec-num">05</span>
-          <h3 class="ec-title">Contact</h3>
-          <p class="ec-desc">Have a project in mind? Let's build something remarkable together.</p>
-          <span class="ec-arrow">→</span>
-        </a>
-      </div>
-    </section>
+    <noscript>
+      <p class="sub" style="margin-top:20px">
+        Redirecting in 10 seconds… or
+        <a href="https://www.ai-ronaghi.de">click here</a>.
+      </p>
+    </noscript>
   </main>
 
-  <footer class="pager">
-    <p class="footer-copy">© 2026 <span>Kambiz Ronaghi</span>. All rights reserved.</p>
-    <div class="pager-nav">
-      <a class="pager-link" href="about.html">
-        <span><small>Next — 02</small><b>About</b></span>
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
-      </a>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+  <script>
+    (function(){
+      var target = "https://www.ai-ronaghi.de";
+      var n = 10, el = document.getElementById("num");
+      var t = setInterval(function(){
+        n--; if(el) el.textContent = n < 0 ? 0 : n;
+        if(n <= 0) clearInterval(t);
+      }, 1000);
+      setTimeout(function(){ window.location.replace(target); }, 10000);
+    })();
+  </script>
 </body>
 </html>
